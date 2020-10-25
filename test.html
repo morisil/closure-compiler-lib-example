@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>myLib.foo() test</title>
+  <script>
+    // workaround to define namespace outside of the script
+    const myLib = {};
+  </script>
+  <script src="my-lib.js"></script>
+  <script>
+    myLib.foo();
+  </script>
+</head>
+<body>
+</body>
+</html>

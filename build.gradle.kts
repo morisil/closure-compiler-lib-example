@@ -21,7 +21,8 @@ task("minify", JavaExec::class) {
       "--js", "my-lib.js",
       "--js_output_file", "my-lib.min.js",
       "--create_source_map", "my-lib.min.js.map",
-      "--output_wrapper", "(function(){%output%})()\n//# sourceMappingURL=my-lib.min.js.map"
+      // workaround - add namespace to the output
+      "--output_wrapper", "const myLib={};(function(){%output%})()\n//# sourceMappingURL=my-lib.min.js.map"
   )
   classpath = sourceSets["main"].runtimeClasspath
 }
